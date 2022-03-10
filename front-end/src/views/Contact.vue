@@ -36,16 +36,16 @@
                         <h3> Contact</h3>
                         <div class="row">
                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                              <input class="Newsletter" placeholder="Name" type="text">
+                              <input class="Newsletter" placeholder="Name" type="text" style="border-radius:2px; border:none;">
                            </div>
-                           <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                              <input class="Newsletter" placeholder="Email" type="text">
+                           <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6" >
+                              <input class="Newsletter" placeholder="Email" type="text" style="border-radius:2px; border:none;">
                            </div>
                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                              <textarea class="textarea" placeholder="comment" type="text">Comment</textarea>
+                              <textarea class="textarea" placeholder="comment" type="text" style="width:563px; height:auto; border-radius:7px;"></textarea>
                            </div>
                         </div>
-                        <button class="Subscribe">Submit</button>
+                        <button class="Subscribe" style="border:none; barckground:aliceblue">Submit</button>
                      </div>
                   </div>
                </div>
@@ -68,9 +68,15 @@ export default {
     color: azure;
     a{
         text-decoration: none;
+        color: azure;
+    }
+    a:hover{
+        
+        color:#42b983;
     }
     li{
         list-style: none;
+        color: azure;
     }
     .location_icon{
         display: inline-flex;

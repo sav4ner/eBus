@@ -1,4 +1,7 @@
+from datetime import datetime
+import email
 from email.policy import default
+from xmlrpc.client import DateTime
 from django.db import models
 from django.db.models.base import Model
 from django.db.models.fields import DurationField, EmailField
@@ -11,9 +14,9 @@ from sqlalchemy import null, true
 
 class bookings(models.Model):
     bookingId = models.AutoField(primary_key=True)
-    firstname= models.CharField(max_length=150)
-    lastname = models.CharField(max_length= 150)
-    email = models.EmailField()
+    name= models.CharField(max_length=150)
+    user = models.CharField(max_length= 150)
+    email = models.EmailField(default="")
     contact = models.CharField(max_length=100)
     date= models.DateField()
     time= models.TimeField()

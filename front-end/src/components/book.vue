@@ -8,10 +8,10 @@
                         <h1>Make your reservation</h1>
                     </div>
                     <form>
-                        <div class="form-group"> <input class="form-control" type="text" placeholder="Fullname..."> <span class="form-label">Destination</span> </div>
+                        <div class="form-group"> <input class="form-control" type="text" placeholder="Fullname..." v-model="fname"> <span class="form-label">Destination</span> </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="form-group"> <input class="form-control" type="date" required> <span class="form-label">Date of travel</span> </div>
+                                <div class="form-group"> <input class="form-control" type="date" required v-model="date"> <span class="form-label">Date of travel</span> </div>
                             </div>
                             <!-- <div class="col-md-6">
                                 <div class="form-group"> <input class="form-control" type="date" required> <span class="form-label">Check out</span> </div>
@@ -19,7 +19,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="form-group"> <select class="form-control" required>
+                                <div class="form-group"> <select class="form-control" required v-model="pas">
                                         <option value="" selected hidden>no of Passengers</option>
                                         <option>1</option>
                                         <option>2</option>
@@ -29,11 +29,13 @@
                                     </select> <span class="select-arrow"></span> <span class="form-label">Rooms</span> </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="form-group"> <select class="form-control" required>
+                                <div class="form-group"> <select class="form-control" required v-model="route">
                                         <option value="" selected hidden>Route</option>
-                                        <option>Nairobi-Eldoret</option>
-                                        <option>Nairobi-Nakuru</option>
-                                        <option>Nairobi-Kisumu</option>
+                                        <option value="Nairobi-Eldoret">Nairobi-Eldoret</option>
+                                        <option value="Nairobi-Nakuru">Nairobi-Nakuru</option>
+                                        <option value="Nairobi-Mombasa">Nairobi-Mombasa</option>
+                                        <option value="Nairobi-Embu">Nairobi-Embu</option>
+                                        <option value="Nairobi-Kitale">Nairobi-Kitale</option>
                                     </select> <span class="select-arrow"></span> <span class="form-label">Adults</span> </div>
                             </div>
                             <!-- <div class="col-md-4">
@@ -46,14 +48,17 @@
                             </div> -->
                         </div>
                         <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group"> <input class="form-control" type="email" placeholder="Enter your Email"> <span class="form-label">Email</span> </div>
+                            <div class="col-md-4">
+                                <div class="form-group"> <input class="form-control" type="text" placeholder="Destination" v-model="destination"> <span class="form-label" >Destination</span> </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group"> <input class="form-control" type="tel" placeholder="Enter you Phone"> <span class="form-label">Phone</span> </div>
+                            <div class="col-md-4">
+                                <div class="form-group"> <input class="form-control" type="email" placeholder="Enter your Email" v-model="email"> <span class="form-label" >Email</span> </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group"> <input class="form-control" type="tel" placeholder="Enter you Phone number" v-model="phone"> <span class="form-label" >Phone</span> </div>
                             </div>
                         </div>
-                        <div class="form-btn"> <button class="submit-btn" data-toggle="modal" data-target="#staticBackdrop">Book Now</button> </div>
+                        <div class="form-btn"> <button class="submit-btn" data-toggle="modal" data-target="#staticBackdrop" @click="authenticate">Book Now</button> </div>
                         
                     </form>
                     <div class="container">
@@ -111,8 +116,65 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
     name: 'book',
+    data() {
+        return {
+            data: null,
+            route: null,
+            pas: null,
+            date: null,
+            fname: null,
+            email: null,
+            phone: null,
+            destination: null,
+            bill: null,
+        }
+    },
+    methods: {
+        authenticate(){
+            if (this.$store.state.isAuthenticated) {
+                const username= localStorage.getItem('username')
+                console.log(username)
+                
+                axios.post('/api/v1/bookings',{
+    "name": this.fname,
+    "user": localStorage.getItem('username'),
+    "email": this.email,
+    "contact": this.phone,
+    "date": this.date,
+    "time": '06:00:00',
+    "fro": this.route,
+    "destination": this.destination,
+    "bill": 800
+    // "name": "levin",
+    // "user": "admin",
+    // "email": "levin@gmail.com",
+    // "contact": "0773834848",
+    // "date": "2022-03-12",
+    // "time": "06:04:00",
+    // "fro": "Eldoret",
+    // "destination": "Nairobi",
+    // "bill": null
+
+     
+})
+                .then(
+                    res=>{
+                        console.log(res.data.status)
+                        alert('Succesfully Booked')
+                        this.$router.push('/')
+                    }).catch(error=>{
+                        console.log(error)
+                        alert('Error')
+                    })
+            } else {
+                alert('Please Log In')
+            }
+        }
+    },
+
 }
 </script>
 
@@ -123,6 +185,7 @@ export default {
 #booking{
     z-index: 0;
     padding-top: 75px;
+    padding-bottom: 75px;
 }
 .section {
     position: relative;

@@ -55,6 +55,24 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../components/Login.vue"),
   },
+  {
+    path: "/signup",
+    name: "registration",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../components/registration.vue"),
+  },
+  {
+    path: "/book",
+    name: "book",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../components/book.vue"),
+  },
 ];
 
 const router = createRouter({

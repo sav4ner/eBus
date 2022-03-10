@@ -4,68 +4,75 @@
         <div class="col-md-10 " style="margin-top: -60px;" >
             <div class="bg-white" style="height:280px; border-radius:10px;">
                 <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
-                    <li class="nav-item" role="presentation"> <button class="nav-link active" id="faq_tab_1-tab" data-bs-toggle="tab" data-bs-target="#faq_tab_1" type="button" role="tab" aria-controls="faq_tab_1" aria-selected="true">
-                            <div class="d-flex flex-column lh-lg"> <i class='bx bxs-plane-alt'></i> <span>Travels</span> </div>
+                    <li class="nav-item" role="presentation"> <button class="nav-link" id="faq_tab_4-tab" data-bs-toggle="tab" data-bs-target="#faq_tab_4" type="button" role="tab" aria-controls="faq_tab_4" aria-selected="false">
+                            <div class="d-flex flex-column lh-lg"> <i class='bx bxs-plane-alt'></i> <span>Booking Status</span> </div>
                         </button> </li>
+                    <!-- <li class="nav-item" role="presentation"> <button class="nav-link active" id="faq_tab_1-tab" data-bs-toggle="tab" data-bs-target="#faq_tab_1" type="button" role="tab" aria-controls="faq_tab_1" aria-selected="true">
+                            <div class="d-flex flex-column lh-lg"> <i class='bx bxs-plane-alt'></i> <span>Travels</span> </div>
+                        </button> </li> -->
                     <li class="nav-item" role="presentation"> <button class="nav-link" id="faq_tab_2-tab" data-bs-toggle="tab" data-bs-target="#faq_tab_2" type="button" role="tab" aria-controls="faq_tab_2" aria-selected="false">
                             <div class="d-flex flex-column lh-lg"> <i class='bx bxs-shopping-bag'></i> <span>My Trips</span> </div>
                         </button> </li>
                     <!-- <li class="nav-item" role="presentation"> <button class="nav-link" id="faq_tab_3-tab" data-bs-toggle="tab" data-bs-target="#faq_tab_3" type="button" role="tab" aria-controls="faq_tab_3" aria-selected="false">
                             <div class="d-flex flex-column lh-lg"> <i class='bx bx-check-circle'></i> <span>Check-in</span> </div>
                         </button> </li> -->
-                    <li class="nav-item" role="presentation"> <button class="nav-link" id="faq_tab_4-tab" data-bs-toggle="tab" data-bs-target="#faq_tab_4" type="button" role="tab" aria-controls="faq_tab_4" aria-selected="false">
-                            <div class="d-flex flex-column lh-lg"> <i class='bx bxs-plane-alt'></i> <span>Booking Status</span> </div>
-                        </button> </li>
+                    
                 </ul>
                 <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade active show" id="faq_tab_1" role="tabpanel" aria-labelledby="faq_tab_1-tab">
+                     <!-- <div class="tab-pane fade active show" id="faq_tab_1" role="tabpanel" aria-labelledby="faq_tab_1-tab">
                         <div class="container p-3">
                             <div class="input-group mb-3"> <input type="text" class="form-control" placeholder="From" v-model="from"> <input type="text" class="form-control" placeholder="To" v-model="to"> </div>
                             <div class="input-group mb-3"> <input type="text" class="form-control" placeholder="Date of Departure" v-model="date"> <input type="text" class="form-control" placeholder="No. of Passengers" v-model="passengers"> </div>
-                            <!-- <div class="input-group mb-3"> <select class="form-select form-control" id="inputGroupSelect02">
+                             <div class="input-group mb-3"> <select class="form-select form-control" id="inputGroupSelect02">
                                     <option selected>Passenger</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3+</option>
-                                    </select> -->
-                                <!--  <select class="form-select form-control" id="inputGroupSelect02">
+                                    </select> 
+                                  <select class="form-select form-control" id="inputGroupSelect02">
                                     <option selected>Cabin</option>
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>
-                                </select>  </div> -->
-                            <div class="mt-4 d-flex justify-content-end"> <button class="btn btn-success custom-button px-5">Show Busses</button> </div>
+                                </select>  </div> 
+                            <div class="mt-4 d-flex justify-content-end"> <button class="btn btn-success custom-button px-5" @click="showModal = !showModal">Show Busses</button> </div>
+                            <showbuses :visible="showModal"></showbuses>
                         </div>
-                    </div>
-                    <div class="tab-pane fade" id="faq_tab_2" role="tabpanel" aria-labelledby="faq_tab_2-tab">
+                    </div> --> 
+                    <div class="tab-pane fade " id="faq_tab_2" role="tabpanel" aria-labelledby="faq_tab_2-tab">
                         <div class="container p-3 scroll-y" style="color: black; height:200px;">
                             <div class="p-3 d-flex justify-content-between align-items-center">
-                                <div class="d-flex flex-column"> <span>Departure</span>
-                                    <div class="d-flex justify-content-between align-items-center"> <span>DAC</span> <i class='bx bxs-plane-take-off ms-3 me-3 text-warning'></i> <span>JKF</span> </div>
+                                <div class="d-flex flex-column"> 
+                                    <!-- <span>Departure</span> -->
+                                    <div class="d-flex justify-content-between align-items-center"> <span>Nairobi -</span> <i class='bx bxs-plane-take-off ms-3 me-3 text-warning'></i> <span>Eldoret</span> </div>
                                 </div>
                                 <div> <span>3 hours 22 minutes</span> </div>
                             </div>
                             <div class="border-top p-3 d-flex justify-content-between align-items-center">
-                                <div class="d-flex flex-column"> <span>Departure</span>
-                                    <div class="d-flex justify-content-between align-items-center"> <span>TUM</span> <i class='bx bxs-plane-take-off ms-3 me-3 text-warning'></i> <span>DEL</span> </div>
+                                <div class="d-flex flex-column"> 
+                                    <!-- <span>Departure</span> -->
+                                    <div class="d-flex justify-content-between align-items-center"> <span>Nakuru -</span> <i class='bx bxs-plane-take-off ms-3 me-3 text-warning'></i> <span>Nairobi</span> </div>
                                 </div>
                                 <div> <span>13 hours 12 minutes</span> </div>
                             </div>
                             <div class="border-top p-3 d-flex justify-content-between align-items-center">
-                                <div class="d-flex flex-column"> <span>Departure</span>
-                                    <div class="d-flex justify-content-between align-items-center"> <span>KMD</span> <i class='bx bxs-plane-take-off ms-3 me-3 text-warning'></i> <span>MUM</span> </div>
+                                <div class="d-flex flex-column">
+                                     <!-- <span>Departure</span> -->
+                                    <div class="d-flex justify-content-between align-items-center"> <span>Embu -</span> <i class='bx bxs-plane-take-off ms-3 me-3 text-warning'></i> <span>Nairobi</span> </div>
                                 </div>
                                 <div> <span>5 hours 12 minutes</span> </div>
                             </div>
                             <div class="border-top p-3 d-flex justify-content-between align-items-center">
-                                <div class="d-flex flex-column"> <span>Departure</span>
-                                    <div class="d-flex justify-content-between align-items-center"> <span>GOA</span> <i class='bx bxs-plane-take-off ms-3 me-3 text-warning'></i> <span>NPU</span> </div>
+                                <div class="d-flex flex-column"> 
+                                    <!-- <span>Departure</span> -->
+                                    <div class="d-flex justify-content-between align-items-center"> <span>Nairobi -</span> <i class='bx bxs-plane-take-off ms-3 me-3 text-warning'></i> <span>Kisumu</span> </div>
                                 </div>
                                 <div> <span>8 hours 12 minutes</span> </div>
                             </div>
                             <div class="border-top p-3 d-flex justify-content-between align-items-center">
-                                <div class="d-flex flex-column"> <span>Departure</span>
-                                    <div class="d-flex justify-content-between align-items-center"> <span>SGR</span> <i class='bx bxs-plane-take-off ms-3 me-3 text-warning'></i> <span>NYC</span> </div>
+                                <div class="d-flex flex-column"> 
+                                    <!-- <span>Departure</span> -->
+                                    <div class="d-flex justify-content-between align-items-center"> <span>Eldoret -</span> <i class='bx bxs-plane-take-off ms-3 me-3 text-warning'></i> <span>Nairobi</span> </div>
                                 </div>
                                 <div> <span>13 hours 12 minutes</span> </div>
                             </div>
@@ -90,7 +97,7 @@
                             <div class="mt-4 d-flex justify-content-end"> <button class="btn btn-success custom-button px-5">Search Hotels</button> </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="faq_tab_4" role="tabpanel" aria-labelledby="faq_tab_4-tab">
+                    <div class="tab-pane fade active show" id="faq_tab_4" role="tabpanel" aria-labelledby="faq_tab_4-tab">
                         <div class="container p-3">
                             <div class="row">
                                 <div class="col-md-6">
@@ -104,7 +111,8 @@
                                         </select> </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="input-group mb-3"> <input type="text" class="form-control" placeholder="Receipt Number"> <button class="btn btn-outline-secondary custom-button" type="button">Search</button>
+                                    <div class="input-group mb-3"> <input type="text" class="form-control" placeholder="Receipt Number"> <button class="btn btn-outline-secondary custom-button" type="button" @click="showModal = !showModal">Search</button>
+                                    <showbuses :visible="showModal"></showbuses>
                                     </div>
                                 </div>
                             </div>
@@ -120,19 +128,52 @@
 </template>
 
 <script>
-// import axios from 'axios'
+ import axios from 'axios'
+import showbuses from './showbuses.vue'
 export default {
     data() {
         return {
-            date: '',
-            to: '',
-            from: '',
-            passengers: '',
+            data: null,
+            route: null,
+            booking: null,
+            showModal: false,
+            link: '/api/v1/bookings/'+this.booking+'/'
         }
     },
     methods: {
-        
+        get(){
+            axios.get(this.link).then(res=>{
+                this.data = res.data
+                alert(res.data)
+            }).catch(err=>{
+                this.data= 'Error'
+                console.log(err)
+            })
+        }
     },
+
+    props: {
+        visible: {date: null,
+            to: null,
+            from: null,
+            passengers: '',
+            default: false
+        },
+        title: {
+            default: "🔥 Boo!"
+        },
+        closeIcon: {
+            default: '<span>&#x274C;</span>'
+        },
+        content: {
+            default: '<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet a tenetur delectus reprehenderit'},
+        footer: {
+        default: '<button>I do nothing!</button>'
+        }
+    },
+    components: {
+        showbuses,
+    }
 }
 </script>
 

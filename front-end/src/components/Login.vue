@@ -12,7 +12,7 @@
       <input type="checkbox" value="remember-me"> Remember me
     </label>
   </div>
-  <a href="/signup" style="float:right; margin-right:240px;">SignIn</a>
+  <a href="/signup" style="float:right; margin-right:140px;">Register</a>
   <button class="btn btn-lg btn-primary btn-block" type="submit" style="margin-right:-240px;">Sign in</button>
   <p class="mt-5 mb-3 text-muted">© 2021-202</p>
 </form>
@@ -45,9 +45,9 @@ export default {
           console.log('Congrats post succsfully')
           console.log(Response)
           const token = Response.data.auth_token
-          const user = localStorage.getItem('username')
+          // const user = localStorage.getItem('username')
           localStorage.setItem('username', this.username)
-          this.$store.commit('setToken', token,user)
+          this.$store.commit('setToken', token)
 
           axios.defaults.headers.common['Authorization'] = 'Token ' + token
           

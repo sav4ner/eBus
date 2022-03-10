@@ -8,17 +8,17 @@ from busApp.models import bookings, category, status, bustype, employee, route, 
 
 
 urlpatterns = [
-    url(r'^api/v1/bookings$',listBookings.as_view(),name='bookings'),
-    url(r'^api/v1/bookings/(?P<id>\d+)$',detailBookings.as_view() ,name = 'singleuser'),
+    path('api/v1/bookings',listBookings.as_view(),name='bookings'),
+    path('api/v1/bookings/<int:pk>/',detailBookings.as_view() ,name = 'singlebookings'),
 
-    url(r'^api/v1/routes$',listRoutes.as_view(), name='destination'),
-    url(r'api/v1/routes/(?P<id>\d+)$',detailRoutes.as_view(), name='singledestination'),
+    path('api/v1/routes',listRoutes.as_view(), name='destination'),
+    path('api/v1/routes/<int:pk>/',detailRoutes.as_view(), name='singleroute'),
 
-    url(r'api/v1/bus$',listBus.as_view(), name='hotel'),
-    url(r'^api/v1/bus/(?P<id>\d+)$',detailBus.as_view(), name='singlehotel'),
+    path('api/v1/bus',listBus.as_view(), name='hotel'),
+    path('api/v1/bus/<int:pk>/',detailBus.as_view(), name='singlebus'),
 
-    url(r'^api/v1/employee$',listEmployee.as_view(), name='bookings'),
-    url(r'^api/v1/employee/(?P<id>\d+)$',detailEmployee.as_view(), name='singlebooking'),
+    path('api/v1/employee',listEmployee.as_view(), name='bookings'),
+    path('api/v1/employee/<int:pk>/',detailEmployee.as_view(), name='singleEmployee'),
 
     
 ]

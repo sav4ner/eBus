@@ -5,6 +5,7 @@ export default createStore({
   state: {
     token: '',
     username: '',
+    email:'',
     isAuthenticated: false, 
   },
   mutations: {
@@ -17,12 +18,15 @@ export default createStore({
         state.isAuthenticated = false
       }
     },
-    setToken(state, token,username) {
+    setToken(state, token) {
       state.token = token
-      state.username = username
       state.isAuthenticated = true
     },
-    
+    setCreds(state, user,email) {
+      state.username = user
+      state.email = email
+      state.isAuthenticated = true
+    },
     removeToken(state){
       state.token= ''
       state.isAuthenticated = false

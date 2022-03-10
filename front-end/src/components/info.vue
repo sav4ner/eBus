@@ -11,7 +11,7 @@
         <router-link to="/about">About</router-link>
         <router-link to="/booking">Manage Booking</router-link>
         <router-link to="/cancellation">Cancellation</router-link>
-        <router-link to="/contact">Contact Us</router-link>
+        <!-- <router-link to="/contact">Contact Us</router-link> -->
       </nav>
 
     <div v-if='!$store.state.isAuthenticated'>
@@ -20,10 +20,10 @@
         </i></router-link>
       </div>
     </div>
-    <div class='sign' v-else>
-      {{$store.state.username}}
+    <div class='sign' v-if="$store.state.isAuthenticated">
+      <b>{{user}}</b>
     </div>
-
+    
   </div>
     <br>  
     <hr style="color:white;">
@@ -36,7 +36,7 @@ export default {
   data() {
     return {
       loged: localStorage.getItem('token'),
-      
+      user: localStorage.getItem('username')
     }
   },
 }

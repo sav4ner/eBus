@@ -49,13 +49,13 @@ class bookingsSerializer (serializers.ModelSerializer):
         model= bookings
         fields = (
             'bookingId',
-            'firstname',
-            'lastname',
+            'name',
+            'user',
             'email',
             'contact',
             'date',
             'time',
-            'from',
+            'fro',
             'destination',
             'bill'
             
